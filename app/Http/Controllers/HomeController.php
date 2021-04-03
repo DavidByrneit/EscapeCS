@@ -97,10 +97,6 @@ class HomeController extends Controller
     {
         return view('levels');
     }
-<<<<<<< Updated upstream
-   /*  public function logicPA()
-     {
-=======
     public function logicPA()
     {
 
@@ -118,18 +114,10 @@ class HomeController extends Controller
             return view('logicP')->with('error', trans('logic.logicanswerwrong'));
         }
     }
->>>>>>> Stashed changes
 
 
 
-<<<<<<< Updated upstream
-             return view('logicP')->with('result', 'Ha not very logical are you, your gonna have to learn the basics first');
-         }
-     } */
-    public function logicPA()
-=======
     public function logicPAMQTT()
->>>>>>> Stashed changes
     {
 
         //https://157b5eec-858e-4a65-801d-5af67c9a7c5f.mock.pstmn.io/solved
