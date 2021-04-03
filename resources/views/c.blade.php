@@ -1,20 +1,30 @@
 @extends('layouts.app')
 <style>
+    pre,
+    code {
+        font-family: monospace, monospace;
+    }
 
-pre, code {
-    font-family: monospace, monospace;
-}
-pre {
-    overflow: auto;
-}
-pre > code {
-    display: block;
-    padding: 1rem;
-    word-wrap: normal;
-}
-li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
-     list-style-type: decimal !important;
-}
+    pre {
+        overflow: auto;
+    }
+
+    pre>code {
+        display: block;
+        padding: 1rem;
+        word-wrap: normal;
+    }
+
+    li.L0,
+    li.L1,
+    li.L2,
+    li.L3,
+    li.L5,
+    li.L6,
+    li.L7,
+    li.L8 {
+        list-style-type: decimal !important;
+    }
 
     .cMemory {
         width: 50%;
@@ -35,9 +45,10 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
         width: 50%;
         float: right;
     }
-    #response{
-  color: blueviolet
-  }
+
+    #response {
+        color: blueviolet
+    }
 </style>
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 @section('content')
@@ -45,7 +56,11 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"> C Program<div class="float-md-right"><a href="/" class="btn btn-primary" role="button">Home</a></div></div>
+                <h4 class="card-header">@lang('cprogram.cprogram')<div class="float-md-right"><a
+                            href="{{ route('home',app()->getLocale()) }}" class="btn btn-primary"
+                            role="button">@lang('cprogram.homepage')</a>
+                    </div>
+                </h4>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -55,17 +70,17 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
                     @endif
 
                     <div class="cMemory">
-                        <div class="gridData">Memory Address</div>
-                        <div class="gridData">Memory Content</div>
-                        <div class="gridData">Memory Allocation</div>
+                        <div class="gridData">@lang('cprogram.memoryaddress')</div>
+                        <div class="gridData">@lang('cprogram.memorycontent')</div>
+                        <div class="gridData">@lang('cprogram.memoryalloc')</div>
 
                         <div class="gridData">0x072</div>
                         <div class="gridData"></div>
-                        <div class="gridData">Unallocated</div>
+                        <div class="gridData">@lang('cprogram.unallocated')</div>
 
                         <div class="gridData">0x071</div>
                         <div class="gridData"></div>
-                        <div class="gridData">Unallocated</div>
+                        <div class="gridData">@lang('cprogram.unallocated')</div>
 
                         <div class="gridData">0x070</div>
                         <div class="gridData"></div>
@@ -122,7 +137,7 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
 
                     </div>
                     <div class="code">
-                        <?php echo Form::open(array('route' => 'cPA'));?>
+                        <?php echo Form::open(array('route' => array('cPA',app()->getLocale())));?>
                         <pre class="prettyprint linenums">
                         <code>
                 #include stdio.h
@@ -149,13 +164,14 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
 
             </code>
         </pre>
-                              What is the content of *ptr2 ?
-                            <?php
+                        @lang('cprogram.question')
+                        <?php
                             echo Form::text('inputvalue2');
-                            echo Form::submit('Click Me!');
+                            echo Form::submit(Lang::get('cprogram.clickme'));
                             echo Form::close();
                             ?>
-                          <div id="response"> {{ $result['response2'] ?? '' }}   </div>
+                        <div id="response"> {{ $result['response2'] ?? '' }} </div>
+                        @include('layouts.flash-message')
                     </div>
 
                 </div>

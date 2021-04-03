@@ -24,7 +24,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Home</div>
+                <h4 class="card-header">@lang('home.homepage')</h4>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -32,13 +32,13 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <h2>This website is a hostage</h2>
-                    <p style="font-size:15px;">Programmers fail to appreciate how lucky they are, standing on the shoulders of giants, men who coded every single step in their programmes.</p>
-                    <p style="font-size:15px;">You have no idea how easy it is for you now, memory allocation, stackoverflows ,ha your greatest worry is incorporating cheats to speed up "productivity". </p>
-                    <p style="font-size:15px;">Learn your past to move forward. You will have to look back to move on.</p>
+                    <h2>@lang('home.hostage')</h2>
+                    <p style="font-size:15px;">@lang('home.hostageinfo')</p>
 
-                    <p style="font-size:18px; color: red;">You will have to solve a series of interlinked clues to learn about different programming methods over the years</p>
-                    <p style="font-size:18px;color: red;">Start from the start, Logic</p>
+                    <p style="font-size:18px; color: red;">@lang('home.hostagestart')</p>
+
+                    @include('layouts.flash-message')
+
                     <div id="response"> {{ $result ?? '' }}</div>
                     <!--
                     <br>
@@ -49,7 +49,7 @@
                     <div class="cMemory">
                         <div class="gridData"></div>
                         <div class="gridData">
-                          
+
 
                         </div>
                         <div class="gridData"></div>
@@ -62,7 +62,7 @@
                                 echo "<s>";
                                 }
                             ?>
-                            <a href="/java">Java Program</a>
+                            <a href="{{route('java',app()->getLocale())}}">@lang('home.javaprogram')</a>
                             <?php
                                 if (session('puzzle') ==4) {
                                 echo "</s>";
@@ -71,14 +71,14 @@
                         </div>
 
                         <div class="gridData">
-                            <a href="/decomp">Decomposition</a>
+                            <a href="{{route('decomp',app()->getLocale())}}">@lang('home.decomposition')</a>
                         </div>
                         <div class="gridData"></div>
                         <div class="gridData"></div>
 
                         <div class="gridData"></div>
                         <div class="gridData">
-                            <a href="/binaryHex">Binary Hex Info</a>
+                            <a href="{{route('binaryHex',app()->getLocale())}}">@lang('home.binaryhexinfo')</a>
                         </div>
                         <div class="gridData"></div>
 
@@ -98,7 +98,7 @@
                                 echo "<s>";
                             }
                             ?>
-                            <a href="/cInfo">C Info</a>
+                            <a href="{{route('cInfo',app()->getLocale())}}">@lang('home.cinfo')</a>
                             <?php
                             if (session('puzzle') >2) {
                                 echo "</s>";
@@ -108,7 +108,7 @@
 
                         <div class="gridData"></div>
                         <div class="gridData">
-                            <a href="/jvsc">Java vs C</a>
+                            <a href="{{route('jvsc',app()->getLocale())}}">@lang('home.javavsc')</a>
                         </div>
                         <div class="gridData"></div>
 
@@ -122,7 +122,7 @@
                                 echo "<s>";
                             }
                             ?>
-                            <a href="/assembler">Assembler Program</a>
+                            <a href="{{route('assembler',app()->getLocale())}}">@lang('home.assemblerprogram')</a>
                             <?php
                             if (session('puzzle') >1) {
                                 echo "</s>";
@@ -136,7 +136,7 @@
                             echo "<s>";
                             }
                             ?>
-                            <a href="/c">C Program</a>
+                            <a href="{{route('c',app()->getLocale())}}">@lang('home.cprogram')</a>
                             <?php
                             if (session('puzzle') >2) {
                             echo "</s>";
@@ -151,7 +151,7 @@
                             echo "<s>";
                             }
                             ?>
-                            <a href="/javaInfo">Java Info</a>
+                            <a href="{{route('javaInfo',app()->getLocale())}}">@lang('home.javainfo')</a>
                             <?php
                             if (session('puzzle') ==4) {
                             echo "</s>";
@@ -173,7 +173,7 @@
                             }
                             ?>
 
-                            <a href="/logicP">Logic </a>
+                            <a href="{{route('logicP',app()->getLocale())}}">@lang('home.logic') </a>
                             <?php
                             if (session('puzzle') != 0) {
                                 echo "</s>";
@@ -198,7 +198,8 @@
                         <div class="gridData"></div>
 
                         <div class="gridData"></div>
-                        <div class="gridData"><a href="/levels">Levels </a></div>
+                        <div class="gridData"><a href="{{route('levels',app()->getLocale())}}">@lang('home.levels')</a>
+                        </div>
                         <div class="gridData"></div>
 
 
@@ -208,17 +209,17 @@
 
                 </div>
                 <div>
-                <h1 class="text-center" >Unlock Code</h1>
-                <?php echo Form::open(array('route' => 'final')); ?>
-                <div class="d-flex justify-content-center">
-                <div><?php echo Form::text('inputvalue1');?></div>
-                <div><?php echo Form::text('inputvalue2');?></div>
-                <div><?php echo Form::text('inputvalue3');?></div>
-                <div><?php echo Form::submit('Click Me!');?></div>
-                </div>
+                    <h1 class="text-center">@lang('home.unlockcode')</h1>
+                    <?php echo Form::open(array('route' => array('final',app()->getLocale()))); ?>
+                    <div class="d-flex justify-content-center">
+                        <div><?php echo Form::text('inputvalue1');?></div>
+                        <div><?php echo Form::text('inputvalue2');?></div>
+                        <div><?php echo Form::text('inputvalue3');?></div>
+                        <div><?php echo Form::submit(Lang::get('home.clickme'));?></div>
+                    </div>
 
                     <?php  echo Form::close()?>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,25 +1,36 @@
 @extends('layouts.app')
 
 <style>
-    pre, code {
-    font-family: monospace, monospace;
-}
-pre {
-    overflow: auto;
-}
-pre > code {
-    display: block;
-    padding: 1rem;
-    word-wrap: normal;
-}
-li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
-     list-style-type: decimal !important;
-}
+    pre,
+    code {
+        font-family: monospace, monospace;
+    }
 
-#response{
-  color: blueviolet
-  }
-    </style>
+    pre {
+        overflow: auto;
+    }
+
+    pre>code {
+        display: block;
+        padding: 1rem;
+        word-wrap: normal;
+    }
+
+    li.L0,
+    li.L1,
+    li.L2,
+    li.L3,
+    li.L5,
+    li.L6,
+    li.L7,
+    li.L8 {
+        list-style-type: decimal !important;
+    }
+
+    #response {
+        color: blueviolet
+    }
+</style>
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 
 @section('content')
@@ -27,7 +38,11 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Java Program <div class="float-md-right"><a href="/" class="btn btn-primary" role="button">Home</a></div></div>
+                <h4 class="card-header">@lang('java.javaprogram') <div class="float-md-right"><a
+                            href="{{ route('home',app()->getLocale()) }}" class="btn btn-primary"
+                            role="button">@lang('java.homepage')</a>
+                    </div>
+                </h4>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -35,10 +50,11 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 {
                         {{ session('status') }}
                     </div>
                     @endif
+                    @include('layouts.flash-message')
                     <?php
-                    echo Form::open(array('route' => 'javaPA')); ?>
+                    echo Form::open(array('route' => array('javaPA',app()->getLocale()))); ?>
 
-<pre class="prettyprint linenums">
+                    <pre class="prettyprint linenums">
     <code class="language-java">
 public class Test {
 
@@ -46,7 +62,7 @@ public class Test {
         Animal animal1=new Animal("Male",6,"Tim");
         Animal animal2=new Animal("Female",4,"David");
         animal2.setAge(animal1.getAge()+1);
-        animal2.Random( <?php echo Form::text('inputvalue2'); ?>);<div id="response"><span class="nocode"> {{ $result['response2'] ?? '' }}</span></div>
+        animal2.Random( <?php echo Form::text('inputvalue2'); ?>);
         System.out.println(animal2.getAge()+animal1.getAge());
 
     }
@@ -116,16 +132,21 @@ public class Animal {
 
 </code>
 </pre>
-What is the output from System ?
+                    @lang('java.output')
 
 
                     <?php echo Form::text('inputvalue1'); ?><br>
 
                     <?php
 
-                    echo Form::submit('Click Me!');
+                    echo Form::submit(Lang::get('java.clickme'));
 
                     echo Form::close()
                     ?>
-                   <div id="response">   {{ $result['response1'] ?? '' }}     </div>
-                </div> </div> </div> </div> </div> @endsection
+
+                    @include('layouts.flash-message')
+                </div>
+            </div>
+        </div>
+    </div>
+</div> @endsection

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Mqtt;
+use Lang;
 
 class HomeController extends Controller
 {
@@ -38,8 +39,13 @@ class HomeController extends Controller
             session()->put('puzzle', 0);
         }
 
+<<<<<<< Updated upstream
        // return view('home');
         return view('LogicPuzzle');
+=======
+        // return view('home');
+        return view('home');
+>>>>>>> Stashed changes
     }
     public function logicInfo()
     {
@@ -91,22 +97,39 @@ class HomeController extends Controller
     {
         return view('levels');
     }
+<<<<<<< Updated upstream
    /*  public function logicPA()
      {
+=======
+    public function logicPA()
+    {
 
 
-         $input =  $_POST["inputvalue1"];
-         if ($input == 1011) {
-             if (session('puzzle') == 0) {
-                 session()->put('puzzle', 1);
-             }
-             return view('home')->with('result', 'Very logical ,you found the first step ,maybe try assembling some brains and we can move onto the next step?');
-         } else {
+        $input =  $_POST["inputvalue1"];
+        if ($input == 1011) {
+            if (session('puzzle') == 0) {
+                session()->put('puzzle', 1);
+            }
+            session()->flash('sucess', trans('logic.logicanswercorrect'));
 
+            return redirect(app()->getLocale() . '/');
+        } else {
+
+            return view('logicP')->with('error', trans('logic.logicanswerwrong'));
+        }
+    }
+>>>>>>> Stashed changes
+
+
+
+<<<<<<< Updated upstream
              return view('logicP')->with('result', 'Ha not very logical are you, your gonna have to learn the basics first');
          }
      } */
     public function logicPA()
+=======
+    public function logicPAMQTT()
+>>>>>>> Stashed changes
     {
 
         //https://157b5eec-858e-4a65-801d-5af67c9a7c5f.mock.pstmn.io/solved
@@ -120,30 +143,28 @@ class HomeController extends Controller
 
 
 
-            $topic='LIT/PuzzleLock';
-            $message='Unlock';
+            $topic = 'LIT/PuzzleLock';
+            $message = 'Unlock';
             $output = Mqtt::ConnectAndPublish($topic, $message);
 
-            if ($output === true)
-            {
+            if ($output === true) {
                 error_log("published");
             }
-               error_log("Failed");
+            //error_log("Failed");
 
 
-            return view('logicP')->with('result', 'Very logical ,youv done it well done, check the lock now');
+            return view('logicP')->with('result', trans('logic.logicanswercorrect'))->with('sucess', trans('logic.logicanswercorrect'));
         } else {
-            $topic='LIT/PuzzleLock';
-            $message='Lock';
+            $topic = 'LIT/PuzzleLock';
+            $message = 'Lock';
             $output = Mqtt::ConnectAndPublish($topic, $message);
 
-            if ($output === true)
-            {
+            if ($output === true) {
                 error_log("published");
             }
-               error_log("Failed");
-
-               return view('logicP')->with('result', 'Ha not very logical are you, your gonna have to learn the basics first');
+            //error_log("Failed");
+            //ray()->showViews();
+            return view('logicP')->with('result', trans('logic.logicanswerwrong'))->with('error', trans('logic.logicanswerwrong'));
         }
     }
 
@@ -157,16 +178,15 @@ class HomeController extends Controller
             'response2' => ''
         ];
 
-        if (strtoupper ($input) == "B"||strtoupper ( $input ) == "0XB"||strtoupper ( $input ) == "0X0B") {
+        if (strtoupper($input) == "B" || strtoupper($input) == "0XB" || strtoupper($input) == "0X0B") {
             $result['response1'] = "Thats correct ,could you B slower ?";
-        }elseif (strtoupper ($input) == "1011") {
+        } elseif (strtoupper($input) == "1011") {
             $result['response1'] = "so close, but we dont deal in binary anymore, we only speak in 16s these days";
-        }
-         else {
+        } else {
             $result['response1'] = "I dont know what your entering but it aint right , try using something logical";
         }
 
-        if (strtoupper ( $input2 )=="D"||strtoupper ( $input2 ) == "0XD"||strtoupper ( $input2 ) == "0X0D"||strtoupper ( $input2 ) == "13") {
+        if (strtoupper($input2) == "D" || strtoupper($input2) == "0XD" || strtoupper($input2) == "0X0D" || strtoupper($input2) == "13") {
 
             if (session('puzzle') == 1) {
                 session()->put('puzzle', 2);
@@ -184,9 +204,9 @@ class HomeController extends Controller
         $input2 =  $_POST["inputvalue2"];
 
         if ($input == "13") {
-            $result['response1'] = "well You know how to go from one page to another following instructions ,well done";
+            $result['response1'] = trans('cprogram.answerhint1');
         } else {
-            $result['response1'] = "can you not even assemble some simple instructions ?";
+            $result['response1'] = trans('cprogram.answerhint2');
         }
 
         if ($input2 == "27") {
@@ -208,19 +228,25 @@ class HomeController extends Controller
             if (session('puzzle') == 3) {
                 session()->put('puzzle', 4);
             }
-            return view('home')->with('result', 'Objectively you have done it but im not happy about it. Fine its over this is the code to unlock the Website 2 5 6');
+
+
+            session()->flash('sucess', trans('java.correct'));
+
+            return redirect(app()->getLocale() . '/');
         } else {
-            $result['response1'] = "Objectively your wrong very very wrong and you were so close as well ,times running out";
+            $result['response1'] = trans('java.error');
         }
 
-        if ($input2 == "0x1B"||$input2 == "0x1b"||$input2 == "27") {
-            $result['response2'] = "Ok you can c but can you be objective enough to get to the end";
+        if ($input2 == "0x1B" || $input2 == "0x1b" || $input2 == "27") {
+            $result['response2'] = trans('java.errorhint1');
         } else {
-            $result['response2'] = "you will need to c the right answer before moving to this problem";
+            $result['response2'] = trans('java.errorhint2');
         }
 
         return view('java')->with('result', $result);
     }
+
+
     public function final()
     {
         $input =  $_POST["inputvalue1"];
@@ -229,9 +255,8 @@ class HomeController extends Controller
 
         if ($input == "2" && $input2 == "5" && $input3 == "6") {
             return view('final');
-        }
-        else{
-            return view('home')->with('result', 'Nope, stop guessing');  
+        } else {
+            return view('home')->with('result', 'Nope, stop guessing');
         }
     }
     public function feedback()
@@ -261,13 +286,13 @@ class HomeController extends Controller
         $q13 =  $_POST["q13"];
         $q14 =  $_POST["q14"];
         $q15 =  $_POST["q15"];
-        
+
 
         DB::table('feedback')->insert(
-            ['Email' =>$input2 , 'Date' => $date, 'Comment' => $input, 'Gender' => $gender, 'Age' => $age, 'SchoolLevel' => $schoolLevel, 'Country' => $country
-            , 'Subject' => $subject, 'q1' => $q1, 'q2' => $q2, 'q3' => $q3, 'q4' => $q4, 'q5' => $q5, 'q6' => $q6, 'q7' => $q7, 'q8' => $q8, 'q9' => $q9, 'q10' => $q10, 'q11' => $q11, 'q12' => $q12, 'q13' => $q13, 'q14' => $q14, 'q15' => $q15]
+            [
+                'Email' => $input2, 'Date' => $date, 'Comment' => $input, 'Gender' => $gender, 'Age' => $age, 'SchoolLevel' => $schoolLevel, 'Country' => $country, 'Subject' => $subject, 'q1' => $q1, 'q2' => $q2, 'q3' => $q3, 'q4' => $q4, 'q5' => $q5, 'q6' => $q6, 'q7' => $q7, 'q8' => $q8, 'q9' => $q9, 'q10' => $q10, 'q11' => $q11, 'q12' => $q12, 'q13' => $q13, 'q14' => $q14, 'q15' => $q15
+            ]
         );
         return view('home');
-
     }
 }

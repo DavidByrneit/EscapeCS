@@ -82,6 +82,11 @@ return [
 
     'locale' => 'en',
 
+    'available_locales' => [
+        'en',
+        'de',
+        'es'
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -227,6 +232,12 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Mqtt' => \Salman\Mqtt\Facades\Mqtt::class,
 
+    ],
+
+    'languages' => [
+        'en' => 'English',
+        'de' => 'Deutsch',
+        'es' => 'Español',
     ],
 
 ];

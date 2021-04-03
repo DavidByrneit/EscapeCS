@@ -19,4 +19,10 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function redirectTo()
+    {
+        //return redirect()->intended(route('home', app()->getLocale()));
+        return app()->getLocale() . '/home';
+    }
 }
