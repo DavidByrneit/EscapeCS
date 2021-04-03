@@ -39,13 +39,8 @@ class HomeController extends Controller
             session()->put('puzzle', 0);
         }
 
-<<<<<<< Updated upstream
-       // return view('home');
-        return view('LogicPuzzle');
-=======
         // return view('home');
         return view('home');
->>>>>>> Stashed changes
     }
     public function logicInfo()
     {
