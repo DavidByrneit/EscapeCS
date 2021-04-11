@@ -14,9 +14,9 @@
                     </div>
                     @endif
                     <h1>Loops in C</h1>
-                    <div>@lang('cinfo.info1')</div>
+                    <div>@lang('cinfo.cinfo1')</div>
                     </br>
-                    <div>@lang('cinfo.info2')</div>
+                    <div>@lang('cinfo.cinfo2')</div>
 
                 </div>
             </div>
