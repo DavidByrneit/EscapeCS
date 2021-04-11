@@ -31,6 +31,7 @@ return [
     'mnemonics' => 'Mnemonics',
     'syntax' => 'Syntax',
     'description' => 'Description',
+    'mnemonicsheading' => 'Below are some common mnemonics',
     'instructionset' => 'Machine code Instruction Set'
 
 ];
