@@ -7,6 +7,11 @@
     #response {
         color: blueviolet
     }
+    input[type=text] {
+    margin: 5px 0;
+    
+    background-color: rgb(235, 235, 235);
+    }
 </style>
 <style>
     .gridTable2 {
@@ -48,14 +53,16 @@
                     @include('layouts.flash-message')
 
                     <h1>@Lang('logic.logicpuzzle')</h1>
-                    <img src="{{ URL::to('/') }}/img/Asset 3.svg" alt="">
+                    <div style="text-align:center">
+                    <img src="{{ URL::to('/') }}/img/Asset 3.svg" width="800" height="600"alt="">
+                    </div>
                     <div class="io">
                         @include('layouts.flash-message')
 
                         <?php
                                       
                     echo Form::open(array('route' => array('logicPA',app()->getLocale())));
-                    echo Form::text('inputvalue1');
+                    echo Form::text('inputvalue1','?????');
                     echo Form::submit(Lang::get('logic.clickme'));
 
                     echo Form::close()

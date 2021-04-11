@@ -20,46 +20,64 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+    article {
+    width: 300px;
+    text-align: center;
+    background-color: #68b04d;
+    border-radius: 10px;
+    margin: 50px auto 20px;
+    padding: 5px;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px #ccc;
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    }
+    
+    article h3 {
+    padding: 10px;
+    color: #fff;
+    }
+    article .count {
+    padding: 5px;
+    }
+    article #timer{
+    padding: 5px;
+    color: crimson;
+    background-color: aliceblue;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 20px;
+    }
+    
+    </style>
+
+    
     @yield('css')
 
-    <script>
-        //gets current time = +d.getTime();;
-        var countDownDate= new Date( <?php echo '"'.session('start').'"' ; ?> ).getTime();
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-
-    </script>
+   
 </head>
 
 <body>
+@guest
+@else    
+<article class="clock" id="model3">
+    <h3></h3>
+
+    <div class="count">
+        <div id="timer"></div>
+    </div>
+</article>
+@endguest       
     <div id="app">
+        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <p id="demo"></p>
+                Website Hostage Escape
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -138,11 +156,89 @@ var x = setInterval(function() {
         </nav>
 
         <main class="py-4">
-
+            
 
             @yield('content')
         </main>
     </div>
 </body>
+<script>
 
+    if(document.getElementById("model3")){
+    
+    var h3 = document.getElementsByTagName("h3");
+    h3[0].innerHTML = "Countdown Timer";
+
+    timedelay=getCookie("countdown");
+
+    if (typeof timedelay === 'undefined' || timedelay === null || timedelay ===''){
+    console.log('no cookie');
+    setCookie("countdown",3600,2);
+    } else {
+    console.log(' cookie exists');
+
+    }
+
+
+    var sec = getCookie("countdown"),
+    countDiv = document.getElementById("timer"),
+    secpass,
+    countDown = setInterval(function () {
+    'use strict';
+
+    secpass();
+    }, 1000);
+
+
+    } else {
+    console.log("clock does nto exist");
+    setCookie("countdown",'',0);
+  
+    }
+   
+
+    
+    
+    function secpass() {
+    'use strict';
+    
+    var min = Math.floor(sec / 60),
+    remSec = sec % 60;
+    
+    
+    if (remSec < 10) { remSec='0' + remSec; } if (min < 10) { min='0' + min; } countDiv.innerHTML=min + ":" + remSec; if
+        (sec> 0) {
+    
+        sec = sec - 1;
+        setCookie("countdown",sec,2);
+    
+        } else {
+    
+        clearInterval(countDown);
+    
+        countDiv.innerHTML = 'Expired, You lost';
+    
+        }
+        }
+
+        function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+            }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+        function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) { var c=ca[i]; while (c.charAt(0)==' ' ) c=c.substring(1,c.length); if
+            (c.indexOf(nameEQ)==0) return c.substring(nameEQ.length,c.length); } return null; 
+        }
+       
+       
+            //set "user_email" cookie, expires in 30 days var
+            
+</script>
 </html>

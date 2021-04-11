@@ -32,20 +32,11 @@ class HomeController extends Controller
 
 
         $date = Carbon::now();
-        
-
         $carbon_date = Carbon::parse($date);
         $carbon_date->addHours(1);
-
-        
-
-        
-
         if (session('start') == null) {
             session()->put('start', $carbon_date);
             session()->put('puzzle', 0);
-           
-
         }
 
         // return view('home');
@@ -171,11 +162,11 @@ class HomeController extends Controller
         ];
 
         if (strtoupper($input) == "B" || strtoupper($input) == "0XB" || strtoupper($input) == "0X0B") {
-            $result['response1'] = trans('assembler.answerhint1');
+            $result['response1'] = "Thats correct ,could you B slower ?";
         } elseif (strtoupper($input) == "1011") {
-            $result['response1'] = trans('assembler.answerhint2');
+            $result['response1'] = "so close, but we dont deal in binary anymore, we only speak in 16s these days";
         } else {
-            $result['response1'] = trans('assembler.answerhint3');
+            $result['response1'] = "I dont know what your entering but it aint right , try using something logical";
         }
 
         if (strtoupper($input2) == "D" || strtoupper($input2) == "0XD" || strtoupper($input2) == "0X0D" || strtoupper($input2) == "13") {
@@ -183,12 +174,9 @@ class HomeController extends Controller
             if (session('puzzle') == 1) {
                 session()->put('puzzle', 2);
             }
-            session()->flash('sucess', trans('assembler.answercorrect'));
-
-            return redirect(app()->getLocale() . '/');
-            
+            return view('home')->with('result', 'Boom!!! well done that was a tough one im suprised,Your beginning to C more clearly');
         } else {
-            $result['response2'] = trans('assembler.answerincorrect');
+            $result['response2'] = "Do you really understand this ?? I left instructions laying around somewhere.";
         }
 
         return view('assembler')->with('result', $result);
@@ -208,13 +196,9 @@ class HomeController extends Controller
             if (session('puzzle') == 2) {
                 session()->put('puzzle', 3);
             }
-
-            session()->flash('sucess', trans('cprogram.answercorrect'));
-
-            return redirect(app()->getLocale() . '/');
-            
+            return view('home')->with('result', 'Looks like your beginning to c clearly ,Im impressed maybe you do understand');
         } else {
-            $result['response2'] = trans('cprogram.answerincorrect');
+            $result['response2'] = "Are you wearing your glasses ? you will have to learn to c memory clearly for this one";
         }
         return view('c')->with('result', $result);
     }
@@ -255,149 +239,41 @@ class HomeController extends Controller
         if ($input == "2" && $input2 == "5" && $input3 == "6") {
             return view('final');
         } else {
-
-            //return view('home')->with('error', trans('home.stopguessing'));
-            session()->flash('error', trans('home.stopguessing'));
-
-            return redirect(app()->getLocale() . '/');
-
+            return view('home')->with('result', 'Nope, stop guessing');
         }
     }
     public function feedback()
     {
-        if (!empty($_POST['input1'])) {
-            $input =  $_POST["input1"];
-        } else {
-            $input =  '';
-        }
-
-        if (!empty($_POST['input2'])) {
-            $input2 =  $_POST["input2"];
-        } else {
-            $input2 =  '';
-        }
-        
+        $input =  $_POST["input1"];
+        $input2 =  $_POST["input2"];
         $date = Carbon::now();
 
-        if (!empty($_POST['gender'])) {
-            $gender =  $_POST["gender"];
-        } else {
-            $gender =  '';
-        }
+        $gender =  $_POST["gender"];
+        $age =  $_POST["age"];
+        $schoolLevel =  $_POST["schoolLevel"];
+        $country =  $_POST["country"];
+        $subject =  $_POST["subject"];
 
-        if (!empty($_POST['age'])) {
-            $age =  $_POST["age"];
-        } else {
-            $age =  0;
-        }
+        $q1 =  $_POST["q1"];
+        $q2 =  $_POST["q2"];
+        $q3 =  $_POST["q3"];
+        $q4 =  $_POST["q4"];
+        $q5 =  $_POST["q5"];
+        $q6 =  $_POST["q6"];
+        $q7 =  $_POST["q7"];
+        $q8 =  $_POST["q8"];
+        $q9 =  $_POST["q9"];
+        $q10 =  $_POST["q10"];
+        $q11 =  $_POST["q11"];
+        $q12 =  $_POST["q12"];
+        $q13 =  $_POST["q13"];
+        $q14 =  $_POST["q14"];
+        $q15 =  $_POST["q15"];
 
-        if (!empty($_POST['schoolLevel'])) {
-            $schoolLevel =  $_POST["schoolLevel"];
-        } else {
-            $schoolLevel =  '';
-        }
-
-        if (!empty($_POST['country'])) {
-            $country =  $_POST["country"];
-        } else {
-            $country =  '';
-        }
-
-        if (!empty($_POST['subject'])) {
-            $subject =  $_POST["subject"];
-        } else {
-            $subject =  '';
-        }
-        if (!empty($_POST['q1'])) {
-            $q1 =  $_POST["q1"];
-        } else {
-            $q1 =  0;
-        }
-        if (!empty($_POST['q2'])) {
-            $q2 =  $_POST["q2"];
-        } else {
-            $q2 =  0;
-        }
-        if (!empty($_POST['q3'])) {
-            $q3 =  $_POST["q3"];
-        } else {
-            $q3 =  0;
-        }
-        if (!empty($_POST['q4'])) {
-            $q4 =  $_POST["q4"];
-        } else {
-            $q4 =  0;
-        }
-        if (!empty($_POST['q5'])) {
-            $q5 =  $_POST["q5"];
-        } else {
-            $q5 =  0;
-        }
-        if (!empty($_POST['q6'])) {
-            $q6 =  $_POST["q6"];
-        } else {
-            $q6 =  0;
-        }
-        if (!empty($_POST['q7'])) {
-            $q7 =  $_POST["q7"];
-        } else {
-            $q7 =  0;
-        }
-        if (!empty($_POST['q8'])) {
-            $q8 =  $_POST["q8"];
-        } else {
-            $q8 =  0;
-        }
-
-        if (!empty($_POST['q9'])) {
-            $q9 =  $_POST["q9"];
-        } else {
-            $q9 =  0;
-        }
-        if (!empty($_POST['q9a'])) {
-            $q9a =  $_POST["q9a"];
-        } else {
-            $q9a =  0;
-        }
-        if (!empty($_POST['q10'])) {
-            $q10 =  $_POST["q10"];
-        } else {
-            $q10 =  0;
-        }
-
-        if (!empty($_POST['q11'])) {
-            $q11 =  $_POST["q11"];
-        } else {
-            $q11 =  0;
-        }
-        if (!empty($_POST['q12'])) {
-            $q12 =  $_POST["q12"];
-        } else {
-            $q12 =  0;
-        }
-
-        if (!empty($_POST['q13'])) {
-            $q13 =  $_POST["q13"];
-        } else {
-            $q13 =  0;
-        }
-        if (!empty($_POST['q14'])) {
-            $q14 =  $_POST["q14"];
-        } else {
-            $q14 =  0;
-        }
-        if (!empty($_POST['q15'])) {
-            $q15 =  $_POST["q15"];
-        } else {
-            $q15 =  0;
-        } 
-        
-
-        // check if there is content before saving 
 
         DB::table('feedback')->insert(
             [
-                'Email' => $input2, 'date' => $date, 'comment' => $input, 'gender' => $gender, 'age' => $age, 'schoolLevel' => $schoolLevel, 'country' => $country, 'subject' => $subject, 'q1' => $q1, 'q2' => $q2, 'q3' => $q3, 'q4' => $q4, 'q5' => $q5, 'q6' => $q6, 'q7' => $q7, 'q8' => $q8, 'q9' => $q9, 'q9a' => $q9a, 'q10' => $q10, 'q11' => $q11, 'q12' => $q12, 'q13' => $q13, 'q14' => $q14, 'q15' => $q15 
+                'Email' => $input2, 'Date' => $date, 'Comment' => $input, 'Gender' => $gender, 'Age' => $age, 'SchoolLevel' => $schoolLevel, 'Country' => $country, 'Subject' => $subject, 'q1' => $q1, 'q2' => $q2, 'q3' => $q3, 'q4' => $q4, 'q5' => $q5, 'q6' => $q6, 'q7' => $q7, 'q8' => $q8, 'q9' => $q9, 'q10' => $q10, 'q11' => $q11, 'q12' => $q12, 'q13' => $q13, 'q14' => $q14, 'q15' => $q15
             ]
         );
         return view('home');

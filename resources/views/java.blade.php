@@ -16,6 +16,12 @@
         word-wrap: normal;
     }
 
+    input[type=text] {
+    margin: 5px 0;
+    
+    background-color: rgb(235, 235, 235);
+    }
+
     li.L0,
     li.L1,
     li.L2,
@@ -62,7 +68,7 @@ public class Test {
         Animal animal1=new Animal("Male",6,"Tim");
         Animal animal2=new Animal("Female",4,"David");
         animal2.setAge(animal1.getAge()+1);
-        animal2.Random( <?php echo Form::text('inputvalue2'); ?>);
+        animal2.Random( <?php echo Form::text('inputvalue2','??'); ?>);
         System.out.println(animal2.getAge()+animal1.getAge());
 
     }
@@ -135,7 +141,7 @@ public class Animal {
                     @lang('java.output')
 
 
-                    <?php echo Form::text('inputvalue1'); ?><br>
+                    <?php echo Form::text('inputvalue1' ,'??'); ?><br>
 
                     <?php
 

@@ -9,58 +9,58 @@ return [
     |
     |
     */
-    'homepage' => 'Hause',
-    'clickme' => 'Kicken!',
-    'logic' => 'Logik',
+    'homepage' => 'Home',
+    'clickme' => 'Click me !',
+    'logic' => 'Logic',
     'hexadecimal' => 'Binary Hexadecimal',
-    'text1' => 'Der einzige Hauptnachteil von Binärzahlen besteht darin, dass das Binärzeichenfolgenäquivalent von a
-                            große dezimale Basis-10-Zahl kann
-                            sei ziemlich lang. <br> <br>
-                            Wenn Sie mit großen digitalen Systemen wie Computern arbeiten,
-                            Es ist üblich, Binärzahlen zu finden, die aus 8, 16 und sogar 32 Ziffern bestehen
-                            macht es schwierig, sowohl zu lesen als auch zu schreiben, ohne Fehler zu erzeugen, insbesondere wenn
-                            Arbeiten mit vielen 16- oder 32-Bit-Binärzahlen. <br> <br>
-                            Ein üblicher Weg, um dieses Problem zu überwinden, besteht darin, das Problem zu lösen
-                            Binärzahlen in Gruppen oder Sätzen von vier Bits (4 Bits). Diese Gruppen von 4-Bit
-                            verwendet eine andere Art von Nummerierungssystem, das auch häufig in Computern und digitalen Medien verwendet wird
-                            Systeme namens Hexadezimalzahlen. <br> <br>
-                            Das Nummerierungssystem „Hexadezimal“ oder einfach „Hex“ verwendet die
-                            Basis des 16-Systems und sind eine beliebte Wahl für die Darstellung langer Binärwerte
-                            weil ihr Format ziemlich kompakt und viel einfacher zu verstehen ist als das
-                            lange binäre Zeichenfolgen von 1 und 0. <br> <br>
-                            Als Base-16-System das hexadezimale Nummerierungssystem
-                            verwendet daher 16 (sechzehn) verschiedene Ziffern mit einer Kombination von Zahlen von 0
-                            bis 15. Mit anderen Worten, es gibt 16 mögliche Ziffernsymbole. <br> <br>
-                            Es gibt jedoch ein potenzielles Problem bei der Verwendung
-                            Methode der Ziffernnotation verursacht durch die Tatsache, dass die Dezimalzahlen von 10, 11, 12,
-                            13, 14 und 15 werden normalerweise mit zwei benachbarten Symbolen geschrieben. <br> <br>
-                            Wenn wir zum Beispiel 10 hexadezimal schreiben, meinen wir das
-                            die Dezimalzahl zehn oder die Binärzahl zwei (1 + 0). Um dies zu umgehen
-                            kniffliges Problem Hexadezimalzahlen, die die Werte von zehn, elf ,. .
-                            . , fünfzehn werden durch Großbuchstaben von A, B, C, D, E und F ersetzt
-                            jeweils. <br> <br>',
-    'text2' => 'Dann verwenden wir im hexadezimalen Nummerierungssystem die Zahlen
-                        von 0 bis 9 und die Großbuchstaben A bis F, um die Binär- oder Dezimalzahl darzustellen
-                        Äquivalent, beginnend mit der niedrigstwertigen Ziffer auf der rechten Seite. <br> <br>
-                        Wie wir gerade gesagt haben, können binäre Zeichenfolgen ziemlich lang sein und
-                        schwer zu lesen, aber wir können das Leben leichter machen, indem wir diese große Binärdatei aufteilen
-                        Zahlen in geraden Gruppen auf, damit sie viel einfacher aufzuschreiben und zu verstehen sind. <br> <br>
-                        Zum Beispiel die folgende Gruppe von Binärziffern 1101
-                        0101 1100 11112 sind viel einfacher zu lesen und zu verstehen als 11010101110011112
-                        wenn sie alle zusammengeballt sind. <br> <br>
-                        Im alltäglichen Gebrauch des Dezimalzahlensystems verwenden wir
-                        Gruppen von drei Ziffern oder Tausender von der rechten Seite, um eine sehr große Zahl zu bilden
-                        wie eine Million oder Billionen, die für uns leichter zu verstehen sind, und dasselbe gilt auch
-                        in digitalen Systemen. <br> <br>
-                        Hexadezimalzahlen sind ein komplexeres System als die Verwendung
-                        Nur binär oder dezimal und wird hauptsächlich im Umgang mit Computern und Speicher verwendet
-                        Adressstandorte. Durch Aufteilen einer Binärzahl in Gruppen von 4 Bits wird jede Gruppe
-                        oder ein Satz von 4 Ziffern kann jetzt einen möglichen Wert zwischen "0000" (0) und "1111" (
-                        8 + 4 + 2 + 1 = 15) ergibt insgesamt 16 verschiedene Zahlenkombinationen von 0 bis 15.
-                        Vergessen Sie nicht, dass "0" auch eine gültige Ziffer ist. <br> <br>
-                        <strong> Zeigt bei der Programmierung an, dass eine Zahl a ist
-                            Hexadezimalzahl anstelle einer Dezimalzahl, die häufig in der geschrieben wird
-                            Format "0x ??" -> 0x0f ist dezimal 15. </ strong>',
+    'text1' => 'The only major disadvantage of binary numbers is that the binary string equivalent of a
+                            large decimal base 10 number can
+                            is quite long. <br> <br>
+                            If you work with large digital systems like computers,
+                            It is common to find binary numbers made up of 8, 16, and even 32 digits
+                            makes it difficult to both read and write without generating errors, especially when
+                            Work with many 16 or 32 bit binary numbers. <br> <br>
+                            A common way to overcome this problem is to solve the problem
+                            Binary numbers in groups or sets of four bits (4 bits). These groups of 4-bit
+                            uses a different type of numbering system that is also commonly used in computers and digital media
+                            Systems called hexadecimal numbers. <br> <br>
+                            The "Hexadecimal" or simply "Hex" numbering system uses the
+                            Basis of the 16 system and are a popular choice for representing long binary values
+                            because their format is quite compact and much easier to understand than that
+                            long binary strings of 1 and 0. <br> <br>
+                            The base 16 system is the hexadecimal numbering system
+                            therefore uses 16 (sixteen) different digits with a combination of numbers from 0
+                            through 15. In other words, there are 16 possible digit symbols. <br> <br>
+                            There is one potential problem with using it, however
+                            Method of digit notation caused by the fact that the decimal numbers of 10, 11, 12,
+                            13, 14 and 15 are usually written with two adjacent symbols. <br> <br>
+                            For example, when we write 10 in hexadecimal, we mean that
+                            the decimal number ten or the binary number two (1 + 0). To get around this
+                            tricky problem hexadecimal numbers that have the values ​​of ten, eleven,. .
+                            . , fifteen are replaced with capital letters from A, B, C, D, E, and F.
+                            each. <br> <br>',
+    'text2' => 'Then we use the numbers in the hexadecimal numbering system
+                        from 0 to 9 and the capital letters A to F to represent the binary or decimal number
+                        Equivalent starting with the least significant digit on the right. <br> <br>
+                        As we just said, binary strings can be quite long as well
+                        hard to read but we can make life easier by splitting this large binary file
+                        Numbers in even groups to make them much easier to write down and understand. <br> <br>
+                        For example the following group of binary digits 1101
+                        0101 1100 11112 are much easier to read and understand than 11010101110011112
+                        when they are re all clumped together. <br> <br>
+                        In everyday use of the decimal number system we use
+                        Groups of three digits or thousands from the right to make a very large number
+                        like a million or trillions that are easier for us to understand, and the same is true
+                        in digital systems. <br> <br>
+                        Hexadecimal numbers are a more complex system than using
+                        Binary or decimal only and is mainly used when dealing with computers and memory
+                        Address locations. By dividing a binary number into groups of 4 bits, each group becomes
+                        or a set of 4 digits can now have a possible value between "0000" (0) and "1111" (
+                        8 + 4 + 2 + 1 = 15) gives a total of 16 different number combinations from 0 to 15.
+                        Don not forget that "0" is also a valid digit. <br> <br>
+                        <strong> When programming, indicates that a number is a
+                            Hexadecimal number instead of a decimal number, which is often written in the
+                            Format "0x ??" -> 0x0f is decimal 15. </ strong>',
 
 
 

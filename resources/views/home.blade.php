@@ -93,17 +93,9 @@
 
                         </div>
                         <div class="gridData">
-                            <?php
-                            if (session('puzzle') > 2) {
-                                echo "<s>";
-                            }
-                            ?>
+                            
                             <a href="{{route('cInfo',app()->getLocale())}}">@lang('home.cinfo')</a>
-                            <?php
-                            if (session('puzzle') >2) {
-                                echo "</s>";
-                            }
-                            ?>
+                            
                         </div>
 
                         <div class="gridData"></div>

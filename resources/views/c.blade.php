@@ -15,6 +15,11 @@
         word-wrap: normal;
     }
 
+    input[type=text] {
+    margin: 5px 0;
+    
+    background-color: rgb(235, 235, 235);
+    }
     li.L0,
     li.L1,
     li.L2,
@@ -150,7 +155,7 @@
                         int *ptr2;
                         y=11;
 
-                        x=<?php echo Form::text('inputvalue1');?>;<div id="response"><span class="nocode"> {{ $result['response1'] ?? '' }}</span></div>
+                        x=<?php echo Form::text('inputvalue1', '?????');?>;<div id="response"><span class="nocode"> {{ $result['response1'] ?? '' }}</span></div>
 
                         ptr= (int*)malloc(n * sizeof(int));
 
@@ -166,7 +171,7 @@
         </pre>
                         @lang('cprogram.question')
                         <?php
-                            echo Form::text('inputvalue2');
+                            echo Form::text('inputvalue2', '????');
                             echo Form::submit(Lang::get('cprogram.clickme'));
                             echo Form::close();
                             ?>

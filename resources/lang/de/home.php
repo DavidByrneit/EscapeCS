@@ -27,7 +27,7 @@ return [
                          Sie haben keine Ahnung, wie einfach es für Sie jetzt ist, Speicherzuweisung, Stapelüberläufe, ha Ihre größte Sorge ist das Einfügen von Cheats, um die "Produktivität" zu beschleunigen.
                          Lerne deine Vergangenheit, um vorwärts zu kommen. Sie müssen zurückblicken, um weiterzumachen.',
     'hostagestart' => 'Sie müssen eine Reihe miteinander verbundener Hinweise lösen, um im Laufe der Jahre mehr über verschiedene Programmiermethoden zu erfahren. <br> Beginnen Sie von vorne, Logik.',
-
+    'stopguessing' => 'Nein, hör auf zu raten und arbeite es aus'
 
 
 ];

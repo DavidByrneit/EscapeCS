@@ -27,6 +27,7 @@ return [
                         You have no idea how easy it is for you now, memory allocation, stackoverflows ,ha your greatest worry is incorporating cheats to speed up "productivity".
                         Learn your past to move forward. You will have to look back to move on.',
     'hostagestart' => 'You will have to solve a series of interlinked clues to learn about different programming methods over the years. <br> Start from the start, Logic.',
+    'stopguessing' => ' Nope , Stop guessing and work it out'
 
 
 

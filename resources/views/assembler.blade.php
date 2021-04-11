@@ -3,54 +3,67 @@
     #response {
         color: blueviolet
     }
+
+    
+    input[type=text] {
+            margin: 5px 0;
+            
+            background-color: rgb(235, 235, 235);
+        }
+    
 </style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <h4 class="card-header"> {{__('Machine Code - Assembler')  }}
+                <h4 class="card-header"> {{__('assembler.assemblertitle')  }}
                     <div class="float-md-right">
                         <a href="{{ route('home',app()->getLocale()) }}" class="btn btn-primary"
                             role="button">@lang('logic.home')</a>
                     </div>
                 </h4>
-
+                @include('layouts.flash-message')
+                 
                 <div class="card-body">
-                    <h5 class="card-title">{{ __('Machine code Program') }}</h5>
+                    <h5 class="card-title">{{ __('assembler.assemblerprogram') }}</h5>
+                    @lang('assembler.text1')
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    <?php
-                    echo Form::open(array('route' => array('assemblerPA',app()->getLocale()))); ?>
-                    1. LDA A #$<?php echo Form::text('inputvalue1'); ?><br>
+                    <br><br>
+                    <table>
+                    <tr>
+                    <td valign="top">
+                    
+                    {{ Form::open(array('route' => array('assemblerPA',app()->getLocale()))) }}
+                    1. LDA A #$ {{ Form::text('inputvalue1','?????') }}<br>
                     <div id="response">{{ $result['response1'] ?? '' }}</div>
                     2. LDA B #$2<br>
                     3. ABA<br>
-                    4. STA A #$001A<br>
-                    {{ __('So what is the Content at memory #$001a ?') }}<br>
+                    4. STA A #$001A<br><br><br>
+                    {{ __('assembler.question') }}<br>
+                    <br>
                     <div id="response">{{ $result['response2'] ?? '' }}</div>
-                    <?php echo Form::text('inputvalue2');
-
-                    echo Form::submit(Lang::get('logic.clickme'));
-
-                    echo Form::close()
-                    ?>
-
-                    <img src="{{ URL::to('/img/MC6800_Processor_Diagram.png') }}"><br>
-
-                    Machine Code is one level above Binary, and is the fastest method to execute a software program. All
-                    programs are translated by compilers to machine code before execution. All computers have state
-                    machine cores which have Accumulators, which is where the main mathematics takes place when doing
-                    calculations
-                    some are significantly more complex than others.
-                    The software is written in a language called Assembler , using memonics for the machine operations
-                    and hexadecimal for numbers.<br>
+                    {{ Form::text('inputvalue2','?????') }}
+                    {{ Form::submit(Lang::get('assembler.clickme')) }}
+                    {{ Form::close()}}
+                    
+                    </td>
+                    <td valign="top">
+                    <img src="{{ URL::to('/img/MC6800_Processor_Diagram.png') }}" width="500" height="300"><br>
+                    </td>
+                    </table>
+                    <br>
+                   
+                    <br>
 
                     <a class="btn btn-primary" href="{{ route('instructionset',app()->getLocale()) }}"
-                        role="button">Machine code Instruction Set</a>
+                        role="button">@lang('assembler.instructionset')</a>
+                        <br>
+                        <br>
                     <table class="table" id="maxitable">
                         <colgroup>
                             <col />
@@ -72,8 +85,8 @@
                             <tr>
                                 <td rowspan="2">LDA</td>
                                 <td>LDA A #data</td>
-                                <td rowspan="2">Load Accumulator from Memory Ex: LDA A #$25 loads the number (25)H into
-                                    accumulator A</td>
+                                <td rowspan="2">
+                                @lang('assembler.instruction1')</td>
                             </tr>
                             <tr>
                                 <td>LDA B #data</td>
@@ -81,12 +94,12 @@
                             <tr>
                                 <td rowspan="1">ABA</td>
                                 <td>[A] &larr; [A] + [B]</td>
-                                <td rowspan="1">Add B to A</td>
+                                <td rowspan="1">@lang('assembler.instruction2')</td>
                             </tr>
                             <tr>
                                 <td rowspan="2">STA</td>
                                 <td>[address] &larr; [A]</td>
-                                <td rowspan="2">Store Accumulator in Memory</td>
+                                <td rowspan="2">@lang('assembler.instruction3')</td>
                             </tr>
                         </tbody>
                     </table>

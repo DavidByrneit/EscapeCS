@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "flag-icon-css": "^3.5.0"
+        "flag-icon-css": "^3.5.0",
+        "js-ray": "0.0.7"
     }
 }

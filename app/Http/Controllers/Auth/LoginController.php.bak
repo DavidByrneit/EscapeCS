@@ -45,9 +45,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $this->doLogout($request);
-        
-        $request->session()->pull('puzzle', 0);
-        $request->session()->pull('start', 0);
+        $request->session()->flush();
         return redirect()->route('login', app()->getLocale());
     }
 
