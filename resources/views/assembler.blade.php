@@ -82,6 +82,12 @@
                             <col />
                         </colgroup>
                         <tbody>
+                        <tr>
+                                <td rowspan="2">@lang('assembler.mnemonics')</td>
+                                <td>@lang('assembler.syntax')</td>
+                                <td rowspan="2">
+                                @lang('assembler.description')</td>
+                            </tr>
                             <tr>
                                 <td rowspan="2">LDA</td>
                                 <td>LDA A #data</td>
@@ -101,6 +107,18 @@
                                 <td>[address] &larr; [A]</td>
                                 <td rowspan="2">@lang('assembler.instruction3')</td>
                             </tr>
+                            <tr>
+                                <td rowspan="2">ADD</td>
+                                <td>ADD A #data </td>
+                                <td rowspan="2">@lang('assembler.instruction4')</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">CLR</td>
+                                <td>CLR A</td>
+                                <td rowspan="2">@lang('assembler.instruction5')</td>
+                            </tr>
+
+                            
                         </tbody>
                     </table>
                     @endsection
