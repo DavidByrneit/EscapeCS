@@ -19,7 +19,7 @@ return [
     'memoryalloc' => 'Memory Allocation',
     'unallocated' => 'Unallocated',
     'answerincorrect' => 'Are you wearing your glasses ? you will have to learn to c memory clearly for this one',
-    'answercorrect' => 'Looks like your beginning to c clearly ,Im impressed maybe you do understand',
+    'answercorrect' => 'Looks like your beginning to c clearly ,Im impressed maybe you do understand. Maybe its time for a break a cup of coffee maybe ?',
     'answerhint1' => 'well You know how to go from one page to another following instructions ,well done',
     'answerhint2' => 'can you not even assemble some simple instructions ?'
 
