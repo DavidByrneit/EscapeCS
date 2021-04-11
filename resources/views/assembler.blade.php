@@ -66,57 +66,42 @@
                         <div>@lang('assembler.mnemonicsheading')</div>
                         <br>
                     <table class="table" id="maxitable">
-                        <colgroup>
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                        </colgroup>
+                     
                         <tbody>
                         <tr>
-                                <td rowspan="2">@lang('assembler.mnemonics')</td>
+                                <td >@lang('assembler.mnemonics')</td>
                                 <td>@lang('assembler.syntax')</td>
-                                <td rowspan="2">
+                                <td >
                                 @lang('assembler.description')</td>
                             </tr>
                             <tr>
-                                <td rowspan="2">LDA</td>
+                                <td>LDA</td>
                                 <td>LDA A #data</td>
-                                <td rowspan="2">
+                                <td >
                                 @lang('assembler.instruction1')</td>
                             </tr>
                             <tr>
                                 <td>LDA B #data</td>
                             </tr>
                             <tr>
-                                <td rowspan="1">ABA</td>
+                                <td >ABA</td>
                                 <td>[A] &larr; [A] + [B]</td>
-                                <td rowspan="1">@lang('assembler.instruction2')</td>
+                                <td>@lang('assembler.instruction2')</td>
                             </tr>
                             <tr>
-                                <td rowspan="2">STA</td>
+                                <td>STA</td>
                                 <td>[address] &larr; [A]</td>
-                                <td rowspan="2">@lang('assembler.instruction3')</td>
+                                <td >@lang('assembler.instruction3')</td>
                             </tr>
                             <tr>
-                                <td rowspan="2">ADD</td>
+                                <td >ADD</td>
                                 <td>ADD A #data </td>
-                                <td rowspan="2">@lang('assembler.instruction4')</td>
+                                <td >@lang('assembler.instruction4')</td>
                             </tr>
                             <tr>
-                                <td rowspan="2">CLR</td>
+                                <td >CLR</td>
                                 <td>CLR A</td>
-                                <td rowspan="2">@lang('assembler.instruction5')</td>
+                                <td>@lang('assembler.instruction5')</td>
                             </tr>
 
                             

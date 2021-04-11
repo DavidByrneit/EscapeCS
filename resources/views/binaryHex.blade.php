@@ -52,10 +52,7 @@
                         </div>
 
                     </div>
-                    <div class="row justify-content-md-center">
-                        @lang('binaryhex.text2')
-
-                    </div>
+                    
 
 
 
