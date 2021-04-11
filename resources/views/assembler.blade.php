@@ -63,6 +63,7 @@
                     <a class="btn btn-primary" href="{{ route('instructionset',app()->getLocale()) }}"
                         role="button">@lang('assembler.instructionset')</a>
                         <br>
+                        <div>@lang('assembler.mnemonicsheading')</div>
                         <br>
                     <table class="table" id="maxitable">
                         <colgroup>
