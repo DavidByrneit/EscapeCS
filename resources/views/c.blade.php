@@ -75,69 +75,7 @@
                     @endif
 
                     <div class="cMemory">
-                        <div class="gridData">@lang('cprogram.memoryaddress')</div>
-                        <div class="gridData">@lang('cprogram.memorycontent')</div>
-                        <div class="gridData">@lang('cprogram.memoryalloc')</div>
-
-                        <div class="gridData">0x072</div>
-                        <div class="gridData"></div>
-                        <div class="gridData">@lang('cprogram.unallocated')</div>
-
-                        <div class="gridData">0x071</div>
-                        <div class="gridData"></div>
-                        <div class="gridData">@lang('cprogram.unallocated')</div>
-
-                        <div class="gridData">0x070</div>
-                        <div class="gridData"></div>
-                        <div class="gridData">ptr2[1]</div>
-
-                        <div class="gridData">0x06F</div>
-                        <div class="gridData"></div>
-                        <div class="gridData">ptr2[0]</div>
-
-                        <div class="gridData">0x06E</div>
-                        <div class="gridData">5</div>
-                        <div class="gridData">ptr[4]</div>
-
-                        <div class="gridData">0x06D</div>
-                        <div class="gridData">4</div>
-                        <div class="gridData">ptr[3]</div>
-
-                        <div class="gridData">0x06C</div>
-                        <div class="gridData">3</div>
-                        <div class="gridData">ptr[2]</div>
-
-                        <div class="gridData">0x06B</div>
-                        <div class="gridData">2</div>
-                        <div class="gridData">ptr[1]</div>
-
-                        <div class="gridData">0x06A</div>
-                        <div class="gridData">1</div>
-                        <div class="gridData">ptr[0]</div>
-
-                        <div class="gridData">0x069</div>
-                        <div class="gridData">0x06f</div>
-                        <div class="gridData">ptr2</div>
-
-                        <div class="gridData">0x068</div>
-                        <div class="gridData"></div>
-                        <div class="gridData">x</div>
-
-                        <div class="gridData">0x067</div>
-                        <div class="gridData">11</div>
-                        <div class="gridData">y</div>
-
-                        <div class="gridData">0x066</div>
-                        <div class="gridData">0x067</div>
-                        <div class="gridData">ptr</div>
-
-                        <div class="gridData">0x065</div>
-                        <div class="gridData">5</div>
-                        <div class="gridData">n</div>
-
-                        <div class="gridData">0x064</div>
-                        <div class="gridData">4</div>
-                        <div class="gridData">i</div>
+                        
 
 
                     </div>
@@ -147,24 +85,16 @@
                         <code>
                 #include stdio.h
                 int main() {
-                        int i;
-                        int n;
-                        int *ptr;
-                        int y;
-                        int x;
-                        int *ptr2;
-                        y=11;
-
-                        x=<?php echo Form::text('inputvalue1', '?????');?>;<div id="response"><span class="nocode"> {{ $result['response1'] ?? '' }}</span></div>
-
-                        ptr= (int*)malloc(n * sizeof(int));
-
-                        for (i = 0; i < n; ++i) {
-                            ptr[i]=i + 1;
+                        int x=<?php echo Form::text('inputvalue1', '?????');?>;<div id="response"><span class="nocode"> {{ $result['response1'] ?? '' }}</span></div> 
+                        int y=9;
+                        for(int i=0; i<5;i++){
+                            x=x+1;
                         }
-                        ptr2=(int*)malloc(2 * sizeof(int));
-                        *ptr2=x + y + ptr[2];
+                        int answer =x+y; 
 
+                        
+
+                        
                 }
 
             </code>

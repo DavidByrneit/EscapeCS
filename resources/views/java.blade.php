@@ -64,77 +64,37 @@
     <code class="language-java">
 public class Test {
 
-    public static void main(String[] args) {
-        Animal animal1=new Animal("Male",6,"Tim");
-        Animal animal2=new Animal("Female",4,"David");
-        animal2.setAge(animal1.getAge()+1);
-        animal2.Random( <?php echo Form::text('inputvalue2','??'); ?>);
-        System.out.println(animal2.getAge()+animal1.getAge());
+    ppublic static void main(String[] args) {
 
+        Animal animal1=new Animal("Male",<?php echo Form::text('inputvalue2','??'); ?>,"Tim");
+        Animal animal2=new Animal("Female",33,"David");
+        animal2.setAge(animal1.getAge()+37);
+       animal1.setAge(animal2.getAge());
+        
+        
+        System.out.println((animal2.getAge()+animal1.getAge())*2);
+        
     }
-}
-
-
-public class Animal {
+    public class Animal {
     String gender;
     int age;
     String name;
-
-    public Animal() {
-
-    }
-
+   
     public Animal(String gender, int age, String name) {
         this.gender = gender;
         this.age = age;
         this.name = name;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public int getAge() {
         return age;
     }
-
     public void setAge(int age) {
         this.age = age;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void Random(String input){
-        switch (input) {
-            case "27":
-                 age = 250;
-                break;
-            case "45":
-                 age = 4000;
-                break;
-            case "25":
-                 age = 102;
-                break;
-            case "33":
-                 age = 120;
-                break;
-            case "80":
-                 age = 111;
-                break;
-            
-        }
-    }
+    
 }
+ 
+
 
 </code>
 </pre>
