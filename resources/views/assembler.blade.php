@@ -40,13 +40,13 @@
                     
                     {{ Form::open(array('route' => array('assemblerPA',app()->getLocale()))) }}
                     1. LDA A #$ {{ Form::text('inputvalue1','?????') }}<br>
-                    <div id="response">{{ $result['response1'] ?? '' }}</div>
+                    
                     2. LDA B #$2<br>
                     3. ABA<br>
                     4. STA A #$001A<br><br><br>
                     {{ __('assembler.question') }}<br>
                     <br>
-                    <div id="response">{{ $result['response2'] ?? '' }}</div>
+                    
                     {{ Form::text('inputvalue2','?????') }}
                     {{ Form::submit(Lang::get('assembler.clickme')) }}
                     {{ Form::close()}}
