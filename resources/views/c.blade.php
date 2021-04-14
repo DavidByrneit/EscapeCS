@@ -85,7 +85,7 @@
                         <code>
                 #include stdio.h
                 int main() {
-                        int x=<?php echo Form::text('inputvalue1', '?????');?>;<div id="response"><span class="nocode"> {{ $result['response1'] ?? '' }}</span></div> 
+                        int x=<?php echo Form::text('inputvalue1', '?????');?>;
                         int y=9;
                         for(int i=0; i<5;i++){
                             x=x+1;
@@ -105,7 +105,7 @@
                             echo Form::submit(Lang::get('cprogram.clickme'));
                             echo Form::close();
                             ?>
-                        <div id="response"> {{ $result['response2'] ?? '' }} </div>
+                       
                         @include('layouts.flash-message')
                     </div>
 
